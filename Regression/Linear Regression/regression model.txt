@@ -1,0 +1,41 @@
+Linear Regression Model (Only use when the data has linear relationship)
+============================================
+To build a linear regression model, it is quite easy with some several steps. This one is my summary after I took a course "Machine Learning With Python" by IBM
+
+First of all, we have various mathods to train and test the dataset. But after doing self-learning, I realize that to avoid out of sample accuracy (the model will not accurate if we use the data out of dataset), we should split the dataset into 2 parts.
+1. Split the dataset:
+-In my program, I will use randomly 80% of dataset for training and 20% for testing. 
+
+2. Building linear regression model:
+2.1) For training set:
+-We will choose one column if we want to build simple linear regression model and several columns from Training dataset in case multiple linear regression
+-If we use the scikitlearn library, it is not hard to do the next step: we will train the model by using scikit learn to get the coefficient(s) and intercept value
+
+I recommend you to understand some maths to understand how our model works.
+As we know, each data in the input column is label as Xi, the predicted value is labeled as y_hat. The formula is:
+
+y_hat = (theta zero) + (theta one).Xi
+
+theta zero: intercept
+theta one: coefficient (usually will be displayed as a matrix)
+
+We need to find the values of both coefficients and intercept. So how to do that?
+a) To find theta one:
+theta one = sum((Xi - mean(X)).(Yi - mean(Y)) / sum([Xi - mean(X)]**2)
+
+mean(X) = sum(Xi)/n of that column
+mean(Y) = sum(Yi)/n of that column
+
+b) To find theta zero:
+
+theta zero = mean(Y) - theta_one.mean(X)
+
+2.2) For training set:
+-Predict the difference of y_hat and y_test
+-Calculate MSE value: mean(sum(y_hat - y_test)**2)
+
+This is all formula neeeded to learn about regression model no matter it is linear or nor (I will talk about this later). But I would like to share with you all - the beginners like me, that is non-linear regression model just a special case of linear regression model.
+So it is very important to understand maths clearly to know how the model works. If I have time, I will build the function by pure python but maybe later. 
+Lastly, sorry for writing the formula like that. I will try to learn how to write it in symbols in the next time. This is my very first note for my Github.
+Thank you for reading, I am glad to receive some feedbacks from you all. Please do not hesitate to contact me via my email: tuyetnhictl135@gmail.com
+ 
